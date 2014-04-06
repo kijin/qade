@@ -19,6 +19,11 @@ Features
 - Open files in any encoding and save them in any other encoding (UTF-8 by default)
 - A rudimentary virtual console for executing shell commands on the server
 
+Screenshot
+----------
+
+![Screenshot](assets/screenshot.png)
+
 Getting Started
 ---------------
 
