@@ -74,7 +74,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <link rel="stylesheet" type="text/css" media="all" href="assets/editor.css" />
     <script type="text/javascript" src="assets/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="assets/jquery-ui-1.10.4.custom.min.js"></script>
-    <script type="text/javascript" src="assets/ace-editor/ace.js"></script>
+    <script type="text/javascript" src="assets/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="assets/editor.js"></script>
 </head>
 <body data-token="<?php echo $token; ?>">
