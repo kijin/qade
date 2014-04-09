@@ -202,15 +202,7 @@ $(function() {
                 other_id = parent.next().attr("id").substr(4);
             }
             var encoding = $("#instance_" + other_id).data("encoding");
-            $("#instance_" + other_id).css("display", "block");
-            $("#tab_" + other_id).addClass("selected");
-            $("#encoding").val(encoding);
-            if (other_id === "console") {
-                $("#console_cmd").focus();
-            } else {
-                ace.edit("instance_" + other_id).resize();
-                ace.edit("instance_" + other_id).focus();
-            }
+            $("#tab_" + other_id).find("a.tab_link").trigger("click");
             parent.remove();
         } else {
             parent.remove();
