@@ -45,6 +45,7 @@ function get_file_info($filename)
         'py' => 'python',
         'rb' => 'ruby',
         'cs' => 'csharp',
+        'md' => 'markdown',
     );
     
     static $binary_extensions = array(
