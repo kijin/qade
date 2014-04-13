@@ -77,7 +77,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <script type="text/javascript" src="assets/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="assets/editor.js"></script>
 </head>
-<body data-token="<?php echo $token; ?>">
+<body data-basedir="<?php echo escape($config['basedir']); ?>" data-token="<?php echo $token; ?>">
 
 <!-- Header -->
 
@@ -97,7 +97,7 @@ setcookie('token', $token, 0, null, null, true, true);
     </div>
     
     <div id="tabs">
-        <div id="tab_console" class="tab console <?php if (!$selected_exists): ?>selected<?php endif; ?>">
+        <div id="tab_console" class="tab console <?php if (!$selected_exists): ?>selected<?php endif; ?>" data-filename="~">
             <a class="tab_link" href="javascript:void(0)">Console</a>
         </div>
     </div>

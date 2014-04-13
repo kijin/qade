@@ -59,8 +59,8 @@ $(function() {
         editor.setTheme("ace/theme/chrome");
         editor.setBehavioursEnabled(false);
         editor.commands.bindKeys({
-            "ctrl-l" : null, "ctrl-n" : null, "ctrl-s" : null, "ctrl-t" : null,
-            "cmd-l" : null, "cmd-n" : null, "cmd-s" : null, "cmd-t" : null,
+            "ctrl-l" : null, "ctrl-n" : null, "ctrl-s" : null, "ctrl-t" : null, "ctrl-u" : null,
+            "cmd-l" : null, "cmd-n" : null, "cmd-s" : null, "cmd-t" : null, "cmd-u" : null
         });
         
         editor.getSession().setTabSize(4);
@@ -217,6 +217,14 @@ $(function() {
     // Attach events to the New file button.
     
     $("#new").click(function(e) {
+        var current_filename = $("#tabs div.selected").first().data("filename");
+        if (current_filename === "~") {  // Console
+            current_filename = $("#console_output").data("dir").substr($("body").data("basedir").length);
+            current_filename = current_filename.replace(/^\//, "");
+        } else {
+            current_filename = current_filename.replace(/\/[^/]+$/, "");
+        }
+        $("#new_file_dir").val(current_filename);
         $("#new_file_dialog").dialog({
             height : 208,
             width : 480,
