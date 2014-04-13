@@ -28,6 +28,7 @@ $(function() {
         $("#tabs div.tab").removeClass("selected");
         $("#editors div.instance").css("display", "none");
         $("#encoding").val(data.encoding);
+        document.title = "QADE - " + data.basename;
         var tab = $('<div class="tab selected"></div>');
         tab.attr("id", "tab_" + data.editorid);
         tab.data("filename", data.filename);
