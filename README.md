@@ -58,7 +58,7 @@ If you install QADE on your server and you get hacked, don't blame me. **You hav
 Limitations
 -----------
 
-QADE currently cannot create new files, rename files, or save files as another name.
+QADE currently cannot rename files, delete files, or save files as another name.
 Please use the console for such tasks.
 (If you don't know how to use simple shell commands, QADE is probably not for you.)
 
