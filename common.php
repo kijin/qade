@@ -44,6 +44,10 @@ function get_file_info($filename)
         'pl' => 'perl',
         'py' => 'python',
         'rb' => 'ruby',
+        'c' => 'c_cpp',
+        'cc' => 'c_cpp',
+        'cpp' => 'c_cpp',
+        'h' => 'c_cpp',
         'cs' => 'csharp',
         'md' => 'markdown',
     );
