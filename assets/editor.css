@@ -36,6 +36,17 @@ header #tabs div.tab i.fa-times { font-size: 10px; color: #666; display: block; 
 .ace_editor { font: normal 13px/19px "Consolas", "Courier New", "NanumGothicCoding", "DotumChe", monospace !important; }
 .ace_search { font: normal 12px/18px "Segoe UI", Arial, sans-serif !important; }
 
+div.ui-dialog { z-index: 99; border: 1px solid #a6a6a6; background-color: #fbfbfb; box-shadow: 0 0 5px #888; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+div.ui-dialog-titlebar { padding: 12px; background-color: #f4f4f4; }
+div.ui-dialog-titlebar span.ui-dialog-title { font-size: 13px; font-weight: bold; }
+div.ui-dialog-titlebar button { display: none; }
+div.ui-dialog-buttonset { padding: 12px; text-align: right; }
+div.ui-dialog-buttonset button { padding: 6px 14px; margin-left: 6px; }
+form.dialog { display: none; padding: 12px 12px 0 12px; }
+form.dialog fieldset { border: 0; margin: 0; padding: 0; }
+form.dialog label { display: inline-block; margin-bottom: 6px; }
+form.dialog input { width: 100%; margin-bottom: 14px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
 @media only screen and (max-width: 960px) {
     header #buttons select { width: 70px; }
     header #tabs { left: 200px; }

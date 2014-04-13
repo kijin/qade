@@ -66,7 +66,7 @@ function get_file_info($filename)
     $content = file_get_contents($filename);
     $encoding = mb_detect_encoding($content, $GLOBALS['config']['detect_encodings']);
     if ($encoding !== false && $encoding !== 'UTF-8') $content = mb_convert_encoding($content, 'UTF-8', $encoding);
-        
+    
     $relative_path = substr($filename, strlen($GLOBALS['config']['basedir']) + 1);
     
     return array(

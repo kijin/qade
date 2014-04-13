@@ -73,7 +73,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <link rel="stylesheet" type="text/css" media="all" href="assets/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" media="all" href="assets/editor.css" />
     <script type="text/javascript" src="assets/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="assets/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="assets/jquery-ui-1.10.4.min.js"></script>
     <script type="text/javascript" src="assets/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="assets/editor.js"></script>
 </head>
@@ -147,6 +147,17 @@ setcookie('token', $token, 0, null, null, true, true);
 <!-- Content Area End -->
 
 </div>
+
+<!-- Dialog Boxes -->
+
+<form id="new_file_dialog" title="New File" class="dialog">
+    <fieldset>
+        <label for="name">Directory</label><br />
+        <input type="text" id="new_file_dir" name="new_file_dir" value="" /><br />
+        <label for="email">Filename</label><br />
+        <input type="text" id="new_file_filename" name="new_file_filename" value="" /><br />
+    </fieldset>
+</form>
 
 <!-- Pass the List of Open Files and Directories to JS -->
 

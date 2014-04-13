@@ -210,6 +210,47 @@ $(function() {
         }
     });
     
+    // Attach events to the New file button.
+    
+    $("#new").click(function(e) {
+        $("#new_file_dialog").dialog({
+            height : 208,
+            width : 480,
+            modal : true,
+            buttons : {
+                Create : function() {
+                    $.ajax({
+                        url: "post_new.php",
+                        method: "post",
+                        data: {
+                            dir: $("#new_file_dir").val(),
+                            filename: $("#new_file_filename").val(),
+                            token: $("body").data("token")
+                        },
+                        dataType: "json",
+                        processData: true,
+                        cache: false,
+                        success: function(data, textStatus, jqXHR) {
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                $("#new_file_dialog").dialog("close");
+                                add_tab(data);
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert(textStatus);
+                        }
+                    });
+                },
+                Cancel : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        $("#new_file_filename").focus();
+    });
+    
     // Attach events to the Save button.
     
     $("#save").click(function(e) {
