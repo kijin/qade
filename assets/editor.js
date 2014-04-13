@@ -58,6 +58,10 @@ $(function() {
         
         editor.setTheme("ace/theme/chrome");
         editor.setBehavioursEnabled(false);
+        editor.commands.bindKeys({
+            "ctrl-l" : null, "ctrl-s" : null, "ctrl-t" : null,
+            "cmd-l" : null, "cmd-s" : null, "cmd-t" : null,
+        });
         
         editor.getSession().setTabSize(4);
         editor.getSession().setUseSoftTabs(true);
