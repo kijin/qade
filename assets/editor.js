@@ -222,7 +222,7 @@ $(function() {
             current_filename = $("#console_output").data("dir").substr($("body").data("basedir").length);
             current_filename = current_filename.replace(/^\//, "");
         } else {
-            current_filename = current_filename.replace(/\/[^/]+$/, "");
+            current_filename = current_filename.replace(/(^|\/)[^/]+$/, "");
         }
         $("#new_file_dir").val(current_filename);
         $("#new_file_dialog").dialog({
