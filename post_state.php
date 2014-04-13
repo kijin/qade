@@ -7,7 +7,7 @@ if (!isset($_POST['token']) || !isset($_COOKIE['token']) || $_POST['token'] !== 
 }
 
 unset($_POST['token']);
-file_put_contents(__DIR__ . '/state.php', '<' . "?php\n\nreturn " . var_export($_POST, true) . ";\n");
+file_put_contents(__DIR__ . '/scratch/state.php', '<' . "?php\n\nreturn " . var_export($_POST, true) . ";\n");
 
 echo 'OK';
 exit;

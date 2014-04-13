@@ -29,7 +29,7 @@ Getting Started
 
 1. Download QADE to a location of your choice, inside the document root of your web server.
 2. Open `config.php` and specify the directory that you wish to see in the sidebar.
-3. Make `state.php` writable by the PHP process.
+3. Make the `scratch` directory writable by the PHP process.
 4. Make writable any other files that you wish to edit.
 5. Open QADE in a modern web browser such as Firefox and Chrome.
 

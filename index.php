@@ -4,7 +4,7 @@
 * QADE : Quick and Dirty Editor
 *
 * URL: http://github.com/kijin/qade
-* Version: 0.1.1
+* Version: 0.1.2
 *
 * Copyright (c) 2014 Kijin Sung <kijin@kijinsung.com>
 *
@@ -35,7 +35,7 @@ list($default_dirs, $default_files) = list_dir($config['basedir']);
 
 // Load previous state.
 
-$state = include('state.php');
+$state = file_exists(__DIR__ . '/scratch/state.php') ? include(__DIR__ . '/scratch/state.php') : array();
 $open_dirs = isset($state['open_dirs']) ? $state['open_dirs'] : array();
 $open_files = isset($state['open_files']) ? $state['open_files'] : array();
 $selected = isset($state['selected']) ? $state['selected'] : '';
