@@ -59,8 +59,8 @@ $(function() {
         editor.setTheme("ace/theme/chrome");
         editor.setBehavioursEnabled(false);
         editor.commands.bindKeys({
-            "ctrl-l" : null, "ctrl-s" : null, "ctrl-t" : null,
-            "cmd-l" : null, "cmd-s" : null, "cmd-t" : null,
+            "ctrl-l" : null, "ctrl-n" : null, "ctrl-s" : null, "ctrl-t" : null,
+            "cmd-l" : null, "cmd-n" : null, "cmd-s" : null, "cmd-t" : null,
         });
         
         editor.getSession().setTabSize(4);
@@ -274,13 +274,17 @@ $(function() {
             $("#encoding").val(prev_encoding);
             return;
         }
-        var prev_encoding = $("#instance_" + editorid).data("encoding", $("#encoding").val());
+        $("#instance_" + editorid).data("encoding", $("#encoding").val());
         $("#tab_" + editorid + " span.unsaved").text("*");
     });
     
-    // Attach events to the Ctrl+S keyboard shortcut.
+    // Attach events to the Ctrl+N and Ctrl+S keyboard shortcuts.
     
     $(document).keypress(function(e) {
+        if (e.ctrlKey && String.fromCharCode(e.which).toLowerCase() === 'n') {
+            $("#new").triggerHandler("click");
+            e.preventDefault();
+        }
         if (e.ctrlKey && String.fromCharCode(e.which).toLowerCase() === 's') {
             $("#save").triggerHandler("click");
             e.preventDefault();
@@ -304,6 +308,7 @@ $(function() {
             $("#console_output div.placeholder").remove();
             $("#console_output").append($('<div class="item" style="color:#00a;font-weight:bold;margin:8px 0"></div>').text(prompt + " " + cmd));
             $("#console_output").append($('<div class="item temporary"></div>').text("executing..."));
+            $("#console_cmd").val("");
             $.ajax({
                 url: "post_cmd.php",
                 method: "post",
@@ -318,7 +323,6 @@ $(function() {
                         var output = datax.substr(datax.indexOf("\n") + 1);
                         $("#console_output").data("dir", newdir);
                         $("#console_output").find("div.temporary").removeClass("temporary").text(output);
-                        $("#console_cmd").val("");
                         $("#instance_console").scrollTop($("#instance_console").get(0).scrollHeight - $("#instance_console").height());
                     } else {
                         alert(data);
