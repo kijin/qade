@@ -49,7 +49,9 @@ function get_file_info($filename)
         'cpp' => 'c_cpp',
         'h' => 'c_cpp',
         'cs' => 'csharp',
+        'go' => 'golang',
         'md' => 'markdown',
+        'htm' => 'html',
     );
     
     static $binary_extensions = array(
