@@ -40,6 +40,9 @@ function get_file_info($filename)
 {
     static $extension_map = array(
         'phps' => 'php',
+        'phtml' => 'php',
+        'html' => 'php',
+        'htm' => 'php',
         'js' => 'javascript',
         'pl' => 'perl',
         'py' => 'python',
@@ -51,7 +54,6 @@ function get_file_info($filename)
         'cs' => 'csharp',
         'go' => 'golang',
         'md' => 'markdown',
-        'htm' => 'html',
     );
     
     static $binary_extensions = array(
