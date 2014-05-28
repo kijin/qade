@@ -262,6 +262,12 @@ $(function() {
         });
         $("#new_file_filename").focus();
     });
+    $("#new_file_filename").keypress(function(e) {
+        if (e.which === 13) {
+            $("#new_file_dialog").parent().find(".ui-dialog-buttonpane button:first").click();
+            e.preventDefault();
+        }
+    });
     
     // Attach events to the Save button.
     
