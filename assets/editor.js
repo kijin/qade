@@ -70,6 +70,8 @@ $(function() {
         editor.getSession().on('change', function(e) {
             $("#tab_" + editorid).find("span.unsaved").text("*");
         });
+        
+        editor.focus();
     }
     
     // Function for saving the contents of a tab.
