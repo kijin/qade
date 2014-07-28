@@ -401,6 +401,7 @@ $(function() {
     // On unload, save currently open directories and tabs.
 
     $(window).on("beforeunload", function() {
+        var console_dir = $("#console_output").data("dir");
         var open_dirs = [];
         var open_files = [];
         var selected = "";
@@ -418,7 +419,7 @@ $(function() {
         $.ajax({
             url: "post_state.php",
             method: "post",
-            data: { open_dirs: open_dirs, open_files: open_files, selected: selected, token: $("body").data("token") },
+            data: { console_dir: console_dir, open_dirs: open_dirs, open_files: open_files, selected: selected, token: $("body").data("token") },
             dataType: "text",
             processData: true,
             cache: false,

@@ -36,6 +36,7 @@ list($default_dirs, $default_files) = list_dir($config['basedir']);
 // Load previous state.
 
 $state = file_exists(__DIR__ . '/scratch/state.php') ? include(__DIR__ . '/scratch/state.php') : array();
+$console_dir = (isset($state['console_dir']) && file_exists($state['console_dir']) && is_dir($state['console_dir'])) ? $state['console_dir'] : $config['basedir'];
 $open_dirs = isset($state['open_dirs']) ? $state['open_dirs'] : array();
 $open_files = isset($state['open_files']) ? $state['open_files'] : array();
 $selected = isset($state['selected']) ? $state['selected'] : '';
@@ -133,9 +134,9 @@ setcookie('token', $token, 0, null, null, true, true);
     <!-- Console -->
     
     <div id="instance_console" class="instance console" style="<?php if ($selected_exists): ?>display:none<?php endif; ?>">
-        <div id="console_output" data-dir="<?php echo escape($config['basedir']); ?>"
+        <div id="console_output" data-dir="<?php echo escape($console_dir); ?>"
             data-username="<?php echo escape(get_current_user()); ?>" data-hostname="localhost">
-            <div class="item placeholder" style="color:#00a;font-weight:bold;margin:8px 0"><?php echo escape(get_current_user()); ?>@localhost:<?php echo escape($config['basedir']); ?>$</div>
+            <div class="item placeholder" style="color:#00a;font-weight:bold;margin:8px 0"><?php echo escape(get_current_user()); ?>@localhost:<?php echo escape($console_dir); ?>$</div>
         </div>
         <div id="console_cmd_container">
             <input type="text" id="console_cmd" style="border: 1px solid #ccc; padding: 4px" size="80" value="" />
