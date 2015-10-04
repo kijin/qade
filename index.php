@@ -172,20 +172,18 @@ setcookie('token', $token, 0, null, null, true, true);
     </fieldset>
 </form>
 
-<!-- Pass the List of Open Files and Directories to JS -->
-
 <?php
     $open_files_json = array();
-    foreach ($open_files as $file)
+    foreach ($open_files as $open_file)
     {
-        $open_files_json[] = get_file_info($config['basedir'] . '/' . $file);
+        $open_files_json[] = get_file_info($config['basedir'] . '/' . $open_file);
     }
 ?>
 
 <script type="text/javascript">
-    var open_dirs = <?php echo json_encode($open_dirs); ?>;
-    var open_files = <?php echo json_encode($open_files_json); ?>;
-    var selected_tab = <?php echo json_encode($selected); ?>;
+    var open_dirs = <?php echo json_encode($open_dirs, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
+    var open_files = <?php echo json_encode($open_files_json, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
+    var selected_tab = <?php echo json_encode($selected, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
 </script>
 
 </body>
