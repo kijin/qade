@@ -81,15 +81,15 @@ setcookie('token', $token, 0, null, null, true, true);
 <head>
     <meta charset="UTF-8" />
     <title>QADE</title>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/normalize-3.0.1.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/fontawesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" media="all" href="assets/editor.css" />
-    <script type="text/javascript" src="assets/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="assets/jquery-ui-1.10.4.min.js"></script>
-    <script type="text/javascript" src="assets/ace-builds/src-min-noconflict/ace.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/ace/1.2.0/noconflict/ace.js"></script>
     <script type="text/javascript" src="assets/editor.js"></script>
 </head>
-<body data-basedir="<?php echo escape($config['basedir']); ?>" data-token="<?php echo $token; ?>">
+<body data-basedir="<?php echo escape($config['basedir']); ?>" data-baseurl="<?php echo escape($baseurl); ?>" data-token="<?php echo $token; ?>">
 
 <!-- Header -->
 
