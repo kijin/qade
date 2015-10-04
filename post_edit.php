@@ -15,6 +15,7 @@ $encoding = isset($_POST['encoding']) ? $_POST['encoding'] : '';
 $encodings = mb_list_encodings();
 if (!in_array($encoding, $encodings)) $encoding = $config['default_encoding'];
 if ($encoding !== 'UTF-8') $content = mb_convert_encoding($content, $encoding, 'UTF-8');
+$content = str_replace("\r\n", "\n", $content);
 if (!preg_match('/\n$/', $content)) $content .= "\n";
 
 file_put_contents($file_full, $content);
