@@ -68,7 +68,6 @@ function get_file_info($filename)
     $extension = ($pos = strrpos($filename, '.')) !== false ? strtolower(substr($filename, $pos + 1)) : 'text';
     if (array_key_exists($extension, $extension_map)) $extension = $extension_map[$extension];
     if (in_array($extension, $binary_extensions)) return array('error' => 'Not a text file.');
-    if (!file_exists(__DIR__ . '/assets/ace-builds/src-min-noconflict/mode-' . $extension . '.js')) $extension = 'text';
     
     if (filesize($filename) > 1048576) return array('error' => 'File is too big.');
     $content = file_get_contents($filename);
