@@ -26,9 +26,9 @@ if (preg_match('#^(?:cd|chdir)\s+(.+)$#', $cmd, $matches))
 else
 {
     $cmd = preg_replace('#^ls(?:\s|$)#', 'ls --group-directories-first ', $cmd);
-    $output = @shell_exec($cmd . ' 2>&1');
+    $output = @shell_exec('TZ=' . $config['default_timezone'] . ' ' . $cmd . ' 2>&1');
     $dir = getcwd();
 }
 
-echo 'OK' . "\n" . $dir . "\n" . $output;
+echo 'OK' . "\n" . $dir . "\n" . preg_replace('/\r?\n/', '', nl2br(escape($output)));
 exit;
