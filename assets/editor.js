@@ -33,7 +33,7 @@ $(function() {
         tab.attr("id", "tab_" + data.editorid);
         tab.data("filename", data.filename);
         tab.append($('<span class="unsaved"></span>'));
-        tab.append($('<a class="tab_link" href="javascript:void(0)"></a>').text(data.basename));
+        tab.append($('<a class="tab_link" href="javascript:void(0)"></a>').text(data.basename).attr("title", data.filename));
         tab.append($('<a class="tab_close" href="javascript:void(0)"><i class="fa fa-times"></i></a>'));
         tab.appendTo($("#tabs"));
         var item = $('<div class="instance"></div>');
