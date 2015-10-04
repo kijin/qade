@@ -76,12 +76,31 @@ function get_file_info($filename)
     
     $relative_path = substr($filename, strlen($GLOBALS['config']['basedir']) + 1);
     
+    $tab_type = $GLOBALS['config']['tab_type'];
+    foreach ($GLOBALS['config']['tab_override_paths'] as $path_prefix)
+    {
+        if (strncmp($filename, $path_prefix, strlen($path_prefix)) == 0)
+        {
+            $tab_type = strpos($tab_type, 'tab') !== false ? 'space' : 'tab';
+            break;
+        }
+    }
+    foreach ($GLOBALS['config']['tab_override_override_paths'] as $path_prefix)
+    {
+        if (strncmp($filename, $path_prefix, strlen($path_prefix)) == 0)
+        {
+            $tab_type = $GLOBALS['config']['tab_type'];
+            break;
+        }
+    }
+    
     return array(
         'editorid' => sha1($relative_path),
         'filename' => $relative_path,
         'basename' => basename($filename),
         'extension' => $extension,
         'encoding' => ($encoding === false) ? 'UTF-8' : $encoding,
+        'tab_type' => $tab_type,
         'content' => $content,
     );
 }

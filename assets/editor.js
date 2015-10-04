@@ -39,6 +39,7 @@ $(function() {
         var item = $('<div class="instance"></div>');
         item.attr("id", "instance_" + data.editorid);
         item.data("filename", data.filename);
+        item.data("tab_type", data.tab_type);
         item.data("ext", data.extension);
         item.data("encoding", data.encoding);
         item.text(data.content);
@@ -53,6 +54,7 @@ $(function() {
         
         var editorid = jQueryObject.attr("id").substr(9);
         var filename = jQueryObject.data("filename");
+        var tab_type = jQueryObject.data("tab_type");
         var ext = jQueryObject.data("ext");
         var editor = ace.edit("instance_" + editorid);
         
@@ -63,8 +65,8 @@ $(function() {
             "cmd-l" : null, "cmd-n" : null, "cmd-s" : null, "cmd-t" : null, "cmd-u" : null
         });
         
-        editor.getSession().setTabSize(4);
-        editor.getSession().setUseSoftTabs(true);
+        editor.getSession().setTabSize(window.tab_size ? window.tab_size : 4);
+        editor.getSession().setUseSoftTabs(tab_type.match(/space/) ? true : false);
         editor.getSession().setMode("ace/mode/" + ext);
         
         editor.getSession().on('change', function(e) {

@@ -184,6 +184,7 @@ setcookie('token', $token, 0, null, null, true, true);
     var open_dirs = <?php echo json_encode($open_dirs, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
     var open_files = <?php echo json_encode($open_files_json, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
     var selected_tab = <?php echo json_encode($selected, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
+    var tab_size = <?php echo json_encode($config['tab_size'], JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
 </script>
 
 </body>
