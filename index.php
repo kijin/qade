@@ -127,6 +127,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <?php foreach ($default_dirs as $dir): ?>
         <div class="dirtree" data-path="<?php echo escape($dir); ?>" style="margin-left:0">
             <a class="dir" href="javascript:void(0)"><i class="fa fa-folder"></i> <?php echo escape($dir); ?></a>
+            <a class="direct" href="<?php echo escape($baseurl . '/' . $dir . '/'); ?>" target="_blank"><i class="fa fa-caret-right"></i></a>
         </div>
     <?php endforeach; ?>
     

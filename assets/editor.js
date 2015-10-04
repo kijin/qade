@@ -128,7 +128,7 @@ $(function() {
                        link.appendTo(item);
                        var direct_link = $('<a class="direct" target="_blank"><i class="fa fa-caret-right"></i></a>');
                        direct_link.attr("href", $("body").data("baseurl") + "/" + path + "/" + value);
-                       direct_link.appendTo(item);
+                       direct_link.appendTo(item.append(" "));
                        item.insertAfter(parent);
                     });
                     $.each(data.dirs, function(index, value) {
@@ -137,6 +137,9 @@ $(function() {
                        var link = $('<a class="dir" href="javascript:void(0)"></a>').text(" " + value);
                        link.prepend('<i class="fa fa-folder"></i>');
                        link.appendTo(item);
+                       var direct_link = $('<a class="direct" target="_blank"><i class="fa fa-caret-right"></i></a>');
+                       direct_link.attr("href", $("body").data("baseurl") + "/" + path + "/" + value + "/");
+                       direct_link.appendTo(item.append(" "));
                        item.insertAfter(parent);
                     });
                 }
