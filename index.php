@@ -57,6 +57,17 @@ foreach ($open_files as $key => $file)
     }
 }
 
+// Create the base URL.
+
+if (!strncmp($config['basedir'], $_SERVER['DOCUMENT_ROOT'], strlen($config['basedir'])))
+{
+    $baseurl = rtrim(substr($_SERVER['DOCUMENT_ROOT'], strlen($config['basedir'])), '/');
+}
+else
+{
+    $baseurl = '/';
+}
+
 // Create a cookie and assign a token to prevent CSRF attacks.
 
 $token = sha1(openssl_random_pseudo_bytes(20));
@@ -122,6 +133,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <?php foreach ($default_files as $file): ?>
         <div class="dirtree" data-path="<?php echo escape($file); ?>" style="margin-left:0">
             <a class="file" href="javascript:void(0)"><i class="fa fa-file-text-o"></i> <?php echo escape($file); ?></a>
+            <a class="direct" href="<?php echo escape($baseurl . '/' . $file); ?>" target="_blank"><i class="fa fa-caret-right"></i></a>
         </div>
     <?php endforeach; ?>
     
