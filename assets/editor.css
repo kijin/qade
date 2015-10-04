@@ -11,7 +11,7 @@ header #tabs { position: absolute; left: 280px; top: 14px; padding-right: 1px; }
 header #tabs div.tab { float: left; position: relative; padding: 6px 18px 3px 8px; height: 14px; background: #fafafa; border: 1px solid #a8a8a8; border-bottom: 0; border-radius: 3px 3px 0 0; margin-right: -1px; }
 header #tabs div.tab.console { padding-right: 8px; }
 header #tabs div.tab.selected { border-bottom: 1px solid #fff; background: #fff; font-weight: bold; }
-header #tabs div.tab a.tab_link { display: inline-block; max-width: 160px; overflow: hidden; text-overflow: ellipsis; }
+header #tabs div.tab a.tab_link { display: inline-block; height: 14px; max-width: 160px; overflow: hidden; text-overflow: ellipsis; }
 header #tabs div.tab span.unsaved { font-weight: normal; color: #d00; }
 header #tabs div.tab i.fa-times { font-size: 10px; color: #666; display: block; padding: 4px; position: absolute; right: 0; top: 0; }
 
