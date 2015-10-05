@@ -23,6 +23,15 @@ if (preg_match('#^(?:cd|chdir)\s+(.+)$#', $cmd, $matches))
         $dir = getcwd();
     }
 }
+elseif (preg_match('/^<\?(=|php)?/', $cmd, $matches))
+{
+    date_default_timezone_set($config['default_timezone']);
+    ini_set('html_errors', false);
+    ob_start();
+    eval(((isset($matches[1]) && $matches[1] === '=') ? 'echo ' : '') . trim(substr($cmd, strlen($matches[0]))) . ';');
+    $output = ob_get_clean();
+    $dir = getcwd();
+}
 else
 {
     $cmd = preg_replace('#^ls(?:\s|$)#', 'ls --group-directories-first ', $cmd);
