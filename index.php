@@ -86,7 +86,7 @@ setcookie('token', $token, 0, null, null, true, true);
     <link rel="stylesheet" type="text/css" media="all" href="assets/editor.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/ace/1.2.0/noconflict/ace.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/ace/1.2.2/noconflict/ace.js"></script>
     <script type="text/javascript" src="assets/editor.js"></script>
 </head>
 <body data-basedir="<?php echo escape($config['basedir']); ?>" data-baseurl="<?php echo escape($baseurl); ?>" data-token="<?php echo $token; ?>">
