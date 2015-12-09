@@ -71,7 +71,8 @@ else
 // Create a cookie and assign a token to prevent CSRF attacks.
 
 $token = sha1(openssl_random_pseudo_bytes(20));
-setcookie('token', $token, 0, null, null, true, true);
+$is_https = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && ($_SERVER['HTTPS'] !== 'off');
+setcookie('token', $token, 0, null, null, $is_https, true);
 
 // End of processing. Everything below is template code.
 
